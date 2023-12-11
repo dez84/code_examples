@@ -8,14 +8,12 @@ Create a new folder for your project and navigate to it in your terminal.
 Initialize a Node.js Project:
 Run the following command to create a package.json file:
 
-bash
-Copy code
+
 npm init -y
 Install Express:
 Install the Express.js framework:
 
-bash
-Copy code
+
 npm install express
 Step 2: Create a Simple REST API
 Create an index.js file:
@@ -23,8 +21,7 @@ Create a file named index.js in your project folder.
 
 Open index.js and write the following code:
 
-javascript
-Copy code
+
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -70,8 +67,7 @@ Step 3: Run Your Server
 Run the server:
 Save your index.js file and run the server using:
 
-bash
-Copy code
+
 node index.js
 Test the API:
 Open your browser or a tool like Postman and test the following endpoints:
