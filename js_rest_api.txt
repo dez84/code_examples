@@ -1,0 +1,82 @@
+Step 1: Setup
+Install Node.js:
+If you haven't installed Node.js, download and install it from nodejs.org.
+
+Create a Project Folder:
+Create a new folder for your project and navigate to it in your terminal.
+
+Initialize a Node.js Project:
+Run the following command to create a package.json file:
+
+bash
+Copy code
+npm init -y
+Install Express:
+Install the Express.js framework:
+
+bash
+Copy code
+npm install express
+Step 2: Create a Simple REST API
+Create an index.js file:
+Create a file named index.js in your project folder.
+
+Open index.js and write the following code:
+
+javascript
+Copy code
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Middleware to parse JSON
+app.use(express.json());
+
+// Sample data
+const users = [
+  { id: 1, name: 'John' },
+  { id: 2, name: 'Jane' },
+];
+
+// Endpoint to get all users
+app.get('/users', (req, res) => {
+  res.json(users);
+});
+
+// Endpoint to get a single user by ID
+app.get('/users/:id', (req, res) => {
+  const userId = parseInt(req.params.id);
+  const user = users.find(u => u.id === userId);
+
+  if (user) {
+    res.json(user);
+  } else {
+    res.status(404).json({ error: 'User not found' });
+  }
+});
+
+// Endpoint to create a new user
+app.post('/users', (req, res) => {
+  const newUser = req.body;
+  users.push(newUser);
+  res.status(201).json(newUser);
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
+});
+Step 3: Run Your Server
+Run the server:
+Save your index.js file and run the server using:
+
+bash
+Copy code
+node index.js
+Test the API:
+Open your browser or a tool like Postman and test the following endpoints:
+
+GET http://localhost:3000/users
+GET http://localhost:3000/users/1
+POST http://localhost:3000/users (with a JSON body)
+Congratulations! You've just created a simple REST API using JavaScript with Node.js 
